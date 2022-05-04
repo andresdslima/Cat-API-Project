@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-const Image = () => <p>Image</p>;
+const Image = ({ url }: any) => (
+  <div>
+    <img src={url} alt="" width="150" />
+  </div>
+);
 
 export default Image;

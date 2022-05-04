@@ -1,4 +1,5 @@
 {
+  "homepage": "http://andresdslima.github.io/Cat-API-Project",
   "name": "react-ts",
   "version": "0.1.0",
   "private": true,
@@ -10,15 +11,17 @@
     "@types/node": "^16.11.31",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.0",
+    "prop-types": "^15.7.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.6.3",
     "uuid": "^8.3.2",
-    "web-vitals": "^2.1.4",
-    "prop-types": "^15.7.2"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@types/uuid": "^8.3.4",
+    "gh-pages": "^3.2.3",
     "sass": "^1.51.0",
     "typescript-plugin-css-modules": "^3.4.0"
   }

@@ -1,3 +1,5 @@
+import { Card } from "../hooks/useGameLogic";
+
 // Shuffle the cards to "mess up" with their order
 export const shuffleCards = (cards: any[]) => {
     let m = cards.length;
@@ -19,14 +21,12 @@ export const shuffleCards = (cards: any[]) => {
 };
 
 // Form a data object per image
-export const getFormedData = (data: any[]) => {
-    return data.map((pic, index) => ({
-        id: index,
-        url: pic.src.small,
-        isShown: false,
-        isFound: false
-    }));
-};
+export const mapImages = (image: any, index: number): Card => ({
+    id: index,
+    url: image?.url,
+    isShown: false,
+    isFound: false,
+});
 
 // "Duplicate" every fetched image
 export const getPairedPics = (data: any[]) => {
