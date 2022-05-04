@@ -9,7 +9,7 @@ export interface Card {
 };
 
 const MAX_VISIBLE_CARDS = 2;
-const FLIP_BACK_PACE = 1500;
+const FLIP_BACK_PACE = 1000;
 
 const useGameLogic = (images: any[]) => {
   const [score, setScore]: any = useState(0);

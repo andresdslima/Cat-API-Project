@@ -14,7 +14,7 @@ const useGetImages = () => {
 
   const params: UrlParams = {
     size: "small",
-    limit: 4,
+    limit: 6,
     type: "gif",
   };
 
