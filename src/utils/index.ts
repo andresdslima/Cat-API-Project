@@ -1,7 +1,12 @@
-import { Card } from "../hooks/useGameLogic";
+export interface Card {
+    id: number,
+    url: string,
+    isShown: boolean,
+    isFound: boolean,
+  };
 
 // Shuffle the cards to "mess up" with their order
-export const shuffleCards = (cards: any[]) => {
+export const shuffleCards = (cards: {} []) => {
     let m = cards.length;
     let t;
     let i;
@@ -15,7 +20,7 @@ export const shuffleCards = (cards: any[]) => {
         t = cards[m];
         cards[m] = cards[i];
         cards[i] = t;
-    }
+    };
 
     return cards;
 };
@@ -29,12 +34,12 @@ export const mapImages = (image: any, index: number): Card => ({
 });
 
 // "Duplicate" every fetched image
-export const getPairedPics = (data: any[]) => {
+export const getPairedPics = (data: any []) => {
     return data.reduce((img, i) => img.concat(i, i), []);
 };
 
 // Extend existing info with a uniqueId key
-export const addUniqueIds = (data: any[]) => {
+export const addUniqueIds = (data: {} []) => {
     return data.map((entry, i) => ({
         ...entry,
         uniqueId: i,

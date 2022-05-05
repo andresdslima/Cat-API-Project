@@ -1,23 +1,16 @@
 import { useEffect, useState } from 'react';
 import { addUniqueIds, getPairedPics, mapImages, shuffleCards } from '../utils';
 
-export interface Card {
-  id: number,
-  url: string,
-  isShown: boolean,
-  isFound: boolean,
-};
-
 const MAX_VISIBLE_CARDS = 2;
 const FLIP_BACK_PACE = 1000;
 
-const useGameLogic = (images: any[]) => {
-  const [score, setScore]: any = useState(0);
-  const [isWin, setIsWin]: any = useState(false);
-  const [cards, setCards]: any[] = useState([]);
-  const [visibleCards, setVisibleCards]: any = useState([]);
+const useGameLogic = (images: any []) => {
+  const [score, setScore]: [number, Function] = useState(0);
+  const [isWin, setIsWin]: [boolean, Function] = useState(false);
+  const [cards, setCards]: [any [], Function] = useState([]);
+  const [visibleCards, setVisibleCards]: [{} [], Function] = useState([]);
 
-  const prepareCards = (imgs: any[]) => {
+  const prepareCards = (imgs: {} []) => {
     const pictures = imgs?.length ? imgs.map(mapImages) : [];
     const pairs = getPairedPics(pictures);
     const uniqueIds = addUniqueIds(pairs);
@@ -25,27 +18,27 @@ const useGameLogic = (images: any[]) => {
     setCards(shuffle);
   };
 
-  const flipCard = (clickedCardId: any) => {
+  const flipCard = (clickedCardId: number) => {
     const flippedCards = cards.map((card: any) => {
       if (card.uniqueId === clickedCardId) {
         card.isShown = true;
       }
 
-      if (card.isShown) setVisibleCards((oldState: any) => [...oldState, card.uniqueId]);
+      if (card.isShown) setVisibleCards((oldState: []) => [...oldState, card.uniqueId]);
 
       return card;
     });
     setCards(flippedCards);
   };
 
-  const onCardClick = (clickedCardId: any) => {
+  const onCardClick = (clickedCardId: number) => {
     if (visibleCards.length < MAX_VISIBLE_CARDS) {
       flipCard(clickedCardId);
     }
   };
 
   const updateScore = () => {
-    setScore((oldScore: any) => oldScore + 1);
+    setScore((oldScore: number) => oldScore + 1);
   };
 
   const checkMatch = () => {
