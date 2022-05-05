@@ -6,3 +6,4 @@
 
 >**Technologies:** *HTML | CSS Modules | TypeScript | React.js*
 
+https://user-images.githubusercontent.com/96556922/166939978-21dce1c3-839d-4718-8fd1-de355a58e961.mp4
