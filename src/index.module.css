@@ -2,5 +2,6 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
-  background-color: #ccc;
+  background-color: #000;
+  color: #fff;
 }
