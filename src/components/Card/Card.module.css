@@ -67,7 +67,7 @@
   transform: rotateY(180deg);
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (max-width: 450px) {
   .container {
     width: 150px;
     height: 150px;
